@@ -42,11 +42,11 @@ def eval_box(genomes,config,pi_gpio):
         if random.randint(0,100) > 90:
             pigpio.decoder_reset()
             if output[0] == 0 and output[1] == 0:
-                # pigpio.set_servo(random.uniform(0, 1),random.uniform(0, 1))
-                print ("set_servo %f , %f" , (random.uniform(0, 1),random.uniform(0, 1)))
+                pigpio.set_servo(random.uniform(0, 1),random.uniform(0, 1))
+                # print ("set_servo %f , %f" , (random.uniform(0, 1),random.uniform(0, 1)))
             else:
-                print (" * set_servo %f , %f" , (output[0],output[1]))
-                # pigpio.set_servo(output[0],output[1])
+                # print (" * set_servo %f , %f" , (output[0],output[1]))
+                pigpio.set_servo(output[0],output[1])
 
         decoder_1 , decoder_2 = pi_gpio.get_decoder()
         result = (decoder_1+decoder_2)/2
