@@ -38,14 +38,14 @@ class Pigpio():
 		self.servo_first_position = SERVO_FIRST_MIN
 		self.servo_second_position = SERVO_SECOND_MAX
 
-		# self.pi_socket.set_servo_pulsewidth(SERVO_FIRST_PIN,self.servo_first_position)
-		# self.pi_socket.set_servo_pulsewidth(SERVO_SECOND_PIN, self.servo_second_position)
+		self.pi_socket.set_servo_pulsewidth(SERVO_FIRST_PIN,self.servo_first_position)
+		self.pi_socket.set_servo_pulsewidth(SERVO_SECOND_PIN, self.servo_second_position)
 
 		self.decoder_one_position = 0
 		self.decoder_two_position = 0
 
-		# self.decoder_one = decoder(self.pi_socket, DECODER_ONE_PIN_A, DECODER_ONE_PIN_B, self.decoder_one_callback)
-		# self.decoder_two = decoder(self.pi_socket, DECODER_TWO_PIN_A, DECODER_TWO_PIN_B, self.decoder_two_callback)
+		self.decoder_one = decoder(self.pi_socket, DECODER_ONE_PIN_A, DECODER_ONE_PIN_B, self.decoder_one_callback)
+		self.decoder_two = decoder(self.pi_socket, DECODER_TWO_PIN_A, DECODER_TWO_PIN_B, self.decoder_two_callback)
 
 	def close(self):
 		self.pi_socket.stop()
