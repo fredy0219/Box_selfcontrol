@@ -29,6 +29,7 @@ class Pigpio():
 
 	def __init__(self):
 		self.pi_socket = pigpio.pi("192.168.2.102" , 8888)
+		self.pi_socket = pigpio.pi()
 
 		if not self.pi_socket.connected:
 		   print " not connect"
