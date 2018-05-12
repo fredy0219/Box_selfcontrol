@@ -11,6 +11,7 @@ from neat.six_util import iteritems, itervalues
 import random
 from box_socket import socket_open , socket_close
 from box_pi import Pigpio
+import time
 
 # 2-input XOR inputs and expected outputs.
 xor_inputs = [(0.0, 0.0), (0.0, 1.0), (1.0, 0.0), (1.0, 1.0)]
@@ -50,7 +51,7 @@ def eval_box(genomes,config,pi_gpio):
 
         decoder_1 , decoder_2 = pi_gpio.get_decoder()
         print("Decoder 1 : {0} , Decoder 2 : {1}".format(decoder_1,decoder_2))
-        
+
         result = (decoder_1+decoder_2)/2
         genome.fitness -= result
 
@@ -112,7 +113,8 @@ if __name__ == '__main__':
     # clientSocket = socket_open('',PORT)
     pigpio = Pigpio()
     # pigpio = None
-    raw_input()
+    
+    time.sleep(10)
 
     try:
         local_dir = os.path.dirname(__file__)
