@@ -32,7 +32,7 @@ def eval_box(genomes,config,pi_gpio):
     input_data = [servo_1,servo_2]
 
     print("Servo 1 : {0} , Servo 2 : {1}".format(servo_1,servo_2))
-    print("Decoder 1 : {0} , Decoder 2 : {1}".format(decoder_1,decoder_2))
+    # print("Decoder 1 : {0} , Decoder 2 : {1}".format(decoder_1,decoder_2))
 
     for genome_id, genome in genomes:
         genome.fitness = 50
@@ -49,6 +49,8 @@ def eval_box(genomes,config,pi_gpio):
                 pigpio.set_servo(output[0],output[1])
 
         decoder_1 , decoder_2 = pi_gpio.get_decoder()
+        print("Decoder 1 : {0} , Decoder 2 : {1}".format(decoder_1,decoder_2))
+        
         result = (decoder_1+decoder_2)/2
         genome.fitness -= result
 
