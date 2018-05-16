@@ -6,7 +6,7 @@ SERVO_FIRST_MIN = 900
 SERVO_FIRST_MAX = 1800
 
 SERVO_SECOND_PIN = 20
-SERVO_SECOND_MIN = 800
+SERVO_SECOND_MIN = 1100
 SERVO_SECOND_MAX = 2200
 
 DECODER_ONE_PIN_A = 4
@@ -28,7 +28,7 @@ def get_sign( number ):
 class Pigpio():
 
 	def __init__(self):
-		self.pi_socket = pigpio.pi("192.168.2.102" , 8888)
+		# self.pi_socket = pigpio.pi("192.168.2.102" , 8888)
 		self.pi_socket = pigpio.pi()
 
 		if not self.pi_socket.connected:
