@@ -42,6 +42,9 @@ def eval_box(genomes,config,pi_gpio):
         # print("Output : {0}".format(output))
         if random.randint(0,100) > 90:
             pigpio.decoder_reset()
+
+            time.sleep(random.randint(0,3))
+
             if output[0] == 0 and output[1] == 0:
                 pigpio.set_servo(random.uniform(0, 1),random.uniform(0, 1))
                 # print ("set_servo %f , %f" , (random.uniform(0, 1),random.uniform(0, 1)))
@@ -74,7 +77,7 @@ def run(config_file , clientSocket , pigpio):
     p.add_reporter(neat.Checkpointer(5))
 
     # Run for up to 300 generations.
-    winner = p.run(eval_box,eval_genomes, 300 , clientSocket , pigpio)
+    winner = p.run(eval_box,eval_genomes, 30000 , clientSocket , pigpio)
 
     # Display the winning genome.
     # for g in itervalues(p.population):
